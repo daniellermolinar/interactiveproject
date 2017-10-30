@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar System Calculator | Web App By Danielle Molinar</title>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ <style type="text/css">
+		@import "style2.css";
+		@import "style.css";
+  </style>
+</head>
+
+<body>
+
+<div id="outsidehead-bluelink"> 
+<p><a href="http://www.daniellemolinar.com/" target="_blank">Main Site</a></p></div>
+
+<div id = "wrapper">
+
+<div id = "header">
+    <h1 style="color: #fff;">Solar System Weight Calculator</h1>
+</div>
+
+<form id="calcForm" action=" " method="post">
+		<div id="box_wrapper">
+
+			<div class="box">
+				<img src="earth.jpg" alt="instructions" class="instructions" />
+				<h3>Enter your weight (in lbs) to calculate your weight on any planet:</h3>
+				<p class="q time">
+				</p>
+			</div>
+			
+			<div class="box">
+				<img src="mercury.jpg" alt="mercury" class="planet" />
+				<h2>Mercury</h2>
+				    <p class="q time">
+				    <input type="text" id="weight1" name="weight" value="0" class="numeric" /></p>
+					</p>
+			</div>
+
+			<div class="box">
+				<img src="venus.jpeg" alt="venus" class="planet" />
+				<h2>Venus</h2>
+				<p class="q time">
+				<input type="text" id="weight2" name="weight" value="0" class="numeric" /></p>
+				</p>
+			</div>
+			<br class="clear" />
+
+			<div class="box">
+			    <img src="mars.jpg" alt="mars" class="planet" />
+				<h2>Mars</h2>
+				<p class="q time">
+				<input type="text" id="weight3" name="weight" value="0" class="numeric" /></p>
+				</p>	
+			</div>
+			
+			<div class="box">
+				<img src="jupiter.jpg" alt="jupiter" class="planet" />
+				<h2>Jupiter</h2>
+				<p class="q time">
+				<input type="text" id="weight4" name="weight" value="0" class="numeric" /></p>
+				</p>
+			</div>
+			
+			<div class="box">
+				<img src="saturn.jpg" alt="saturn" class="planet" />
+				<h2>Saturn</h2>
+				<p class="q time">
+				<input type="text" id="weight5" name="weight" value="0" class="numeric" /></p>
+				</p>
+			</div>
+			<br class="clear" />
+
+			<div class="box">
+				<img src="uranus.jpg" alt="uranus" class="planet" />
+				<h2>Uranus</h2>
+				<p class="q time">
+				<input type="text" id="weight6" name="weight" value="0" class="numeric" /></p>
+				</p>
+			</div>
+			
+			<div class="box">
+				<img src="neptune.jpeg" alt="neptune" class="planet" />
+				<h2>Neptune</h2>
+				<p class="q time">
+				<input type="text" id="weight7" name="weight" value="0" class="numeric" /></p>
+				</p>
+			  </div>
+				
+			<div class="box">
+				<img src="pluto.jpeg" alt="pluto" class="planet" />
+				<h2>Pluto</h2>
+				<p class="q time">
+				<input type="text" id="weight8" name="weight" value="0" class="numeric" /></p>
+				</p>
+			</div>
+			
+			<p align="center"><button type="submit" value="Submit">Reset</button>
+</form>
+</div>
+
+<div id="results_wrapper" style="min-height:800px;">
+			<div id="box">
+			<h3 id="totalusage"></h3>
+			</div>
+			
+			<div class="caption" style="margin:-10px 0 20px 0;">* Decimal rounded to the nearest whole number.</div>
+								
+	  <div id="household_totals" style="margin-top:-30px;">
+				<div class="sections">
+					<h3 style="color: #A400D5;">On Planet...</h3>
+					<p><strong>Mercury:</strong> <span id="mercuryTotal"></span><br />
+					<span id='mercuryTotal' class="jugs"></span></p>
+					
+					<p><strong>Venus:</strong> <span id="venusTotal"></span><br />
+					<span id="venusTotal" class="jugs"></span></p>
+					
+					<p><strong>Mars:</strong> <span id="marsTotal"></span><br />
+					<span id="marsTotal" class="jugs"></span></p>
+					
+					<p><strong>Jupiter:</strong> <span id="jupiterTotal"></span><br />
+					<span id="jupiterTotal" class="jugs"></span></p>
+					
+					<p><strong>Saturn:</strong> <span id="saturnTotal"></span><br />
+					<span id="saturnTotal" class="jugs"></span></p>
+					
+					<p><strong>Uranus:</strong> <span id="uranusTotal"></span><br />
+					<span id="uranusTotal" class="jugs"></span></p>
+					
+					<p><strong>Neptune:</strong> <span id="neptuneTotal"></span><br />
+					<span id="neptuneTotal" class="jugs"></span></p>
+					
+					<p><strong>Pluto:</strong> <span id="plutoTotal"></span><br />
+					<span id="plutoTotal" class="jugs"></span></p>
+				</div>
+	
+		 </div>
+
+			<div id="dividerbar" class="dividerbar"><p ></p></div>
+
+			<br style="clear:both;" />
+			<br />
+			
+			<div class="caption" style="margin:-10px 0 20px 0;">* Our changing weights on each planet is caused by 
+			the different gravitational forces each planet has. Weight is really just a measure of the pull of gravity
+			between you and the mass (like a planet) you are standing on. Multiply your weight times the planet's gravitational
+			force shown in the chart below to check the calculations yourself :) </div>
+			<p align="center" > Planet's Surface Gravity Comparison :</p>
+			 <!--Div that will hold the chart-->
+            <div id="chart_div" width= "100%"></div>
+            </div>
+	
+	<hr class="clear" />
+
+	<div style="font-size:11px; line-height:1.4em;">
+	<p style="clear:both;" align="left">.</p>
+    <p align="center"> By: Danielle Molinar </p>
+    </div>
+    
+</div>
+
+
+<script>
+<!--Load the AJAX API-->
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+       function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '');
+        data.addColumn('number', '');
+        data.addRows([
+          ['Mercury', .38],
+          ['Venus', .91],
+          ['Mars', .38],
+          ['Jupiter', 2.34],
+          ['Saturn', 1.06],  
+          ['Uranus', .92],
+          [ 'Neptune', 1.19]
+        ]);
+        
+        // Set chart options
+        var options = {'title':'',
+        				'backgroundColor':'#F4E0FA',
+                       'height':200,
+                       'legend':'none'};
+
+        // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+
+
+document.getElementById("calcForm").onchange=function() { // function executes when form is submitted
+           
+var earthWeight1 = document.getElementById("weight1").value;
+var mercuryWeight = earthWeight1 * .38;
+var mercuryKG = mercuryWeight * .45; 
+
+var earthWeight2 = document.getElementById("weight2").value;
+var venusWeight = earthWeight2 * 0.91;
+var venusKG = venusWeight * 0.45;
+
+var earthWeight3 = document.getElementById("weight3").value;
+var marsWeight = earthWeight3 * 0.38;
+var marsKG = marsWeight * 0.45;
+
+var earthWeight4 = document.getElementById("weight4").value;
+var jupiterWeight = earthWeight4 * 2.34;
+var jupiterKG = jupiterWeight * 0.45;
+
+var earthWeight5 = document.getElementById("weight5").value;
+var saturnWeight = earthWeight5 * 1.06;
+var saturnKG = saturnWeight * .45;
+
+var earthWeight6 = document.getElementById("weight6").value;
+var uranusWeight = earthWeight6 * .92;
+var uranusKG = uranusWeight * .45;
+
+var earthWeight7 = document.getElementById("weight7").value;
+var neptuneWeight = earthWeight7 * 1.19;
+var neptuneKG = neptuneWeight * 0.45;
+
+var earthWeight8 = document.getElementById("weight8").value;
+var plutoWeight = earthWeight8 * 0.06;
+var plutoKG = plutoWeight * 0.45;
+
+
+document.getElementById("mercuryTotal").innerHTML = " " + Math.round(mercuryWeight) + " lbs " + " or " + Math.round(mercuryKG) + "kg "  ; // changes the innerHTML to the form element
+      
+document.getElementById("venusTotal").innerHTML = " " + Math.round(venusWeight) + " lbs " +  " or " +  Math.round(venusKG) + " kg "  ; // changes the innerHTML to the form element
+      
+document.getElementById("marsTotal").innerHTML = " " + Math.round(marsWeight) + " lbs " + " or " + Math.round(marsKG) + " kg "  ; // changes the innerHTML to the form element
+            
+document.getElementById("jupiterTotal").innerHTML = " " + Math.round(jupiterWeight) + " lbs " + " or " + Math.round(jupiterKG) + " kg " ; // changes the innerHTML to the form element
+       
+document.getElementById("saturnTotal").innerHTML = " " + Math.round(saturnWeight) + " lbs " + " or " + Math.round(saturnKG) + " kg " ; // changes the innerHTML to the form element
+      
+document.getElementById("uranusTotal").innerHTML = " " + Math.round(uranusWeight) + " lbs " + " or " + Math.round(uranusKG) + " kg " ; // changes the innerHTML to the form element
+      
+document.getElementById("neptuneTotal").innerHTML = " " + Math.round(neptuneWeight) + " lbs " + " or " + Math.round(neptuneKG) + " kg " ; // changes the innerHTML to the form element
+      
+document.getElementById("plutoTotal").innerHTML = " " + Math.round(plutoWeight) + " lbs " + " or " + Math.round(plutoKG) + " kg " ; // changes the innerHTML to the form element
+          
+    
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '');
+        data.addColumn('number', '');
+        data.addRows([
+          ['Mercury', .38],
+          ['Venus', .91],
+          ['Mars', .38],
+          ['Jupiter', 2.34],
+          ['Saturn', 1.06],  
+          ['Uranus', .92],
+          [ 'Neptune', 1.19]
+        ]);
+
+        // Set chart options
+        var options = {'title':'',
+        				'backgroundColor':'#F4E0FA',
+                       'height':200,
+                       'legend':'none'};
+
+        // Instantiate and draw our chart, passing in some options.
+       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+       chart.draw(data, options);
+      }
+      
+} //return false;  required to not refresh the page
+</script>
+
+</body>
+</html>

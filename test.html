@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Water Use Calculator | Web App By Ben Slade</title>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ <style type="text/css">
+		@import "style2.css";
+		@import "style.css";
+  </style>
+</head>
+
+
+<body>
+
+<div id="outsidehead-bluelink"> <p><a href="http://www.daniellemolinar.com/">Home</a></p>
+</div>
+
+<div id = "wrapper">
+<h1>JavaScript Quiz</h1>
+	<h1 id="graphic_header"><img src="img/header.jpg" alt="Water Use Calculator" /></h1>
+</div>
+		
+		<form id="calcForm" action=" " method="post">
+		<div id="box_wrapper">
+
+			<div class="box">
+				<img src="img/select.jpg" alt="How Often" class="intro_image" />
+			</div>
+			<div class="box">
+				<img src="img/shower.jpg" alt="Shower" class="intro_image" />
+				<h2>Showers</h2>
+				<p class="q">
+					<label for="showers">Per day</label>
+					<select name="showers" id="showers" onChange=" ">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select>
+				</p>
+				
+			</div>
+
+			<div class="box">
+				<img src="img/tub.jpg" alt="Baths" class="intro_image" />
+				<h2>Baths</h2>
+				<p class="q">
+					<label for="baths">Per week</label>
+					<select name="baths" id="baths">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select>
+				</p>
+			</div>
+			<br class="clear" />
+
+			<div class="box">
+				<img src="img/toilet.jpg" alt="Toilet flushes" class="intro_image" />
+				<h2>Toilet flushes</h2>
+				<p class="q">
+					<label for="toilet_flushes">Per day</label>
+					<select name="toilet_flushes" id="toilet_flushes">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select>
+				</p>
+				
+			</div>
+			<div class="box">
+				<img src="img/faucet.jpg" alt="Running water" class="intro_image" />
+				<h2>Running water </h2><p>(Bathroom Sink)</p>
+				<p class="q"><label for="sink_minutes">Minutes per day washing hands, brushing teeth, etc.</label></p>
+				<p class="q time"><input type="text" id="sink_minutes" name="sink_minutes" value="0" class="numeric" /></p>
+				
+			</div>
+			<div class="box">
+				<img src="img/disheshand.jpg" alt="Dishes by hand" class="intro_image" />
+				<h2>Dishes by hand </h2><p>(Kitchen Sink)</p>
+				<p class="q"><label for="hand_minutes">Minutes per day</label></p>
+				<p class="q time"><input type="text" id="hand_minutes" name="hand_minutes" value="0" class="numeric" /></p>
+				</div>
+			<br class="clear" />
+
+			<div class="box">
+				<img src="img/dishwasher.jpg" alt="Dishwasher" class="intro_image" />
+				<h2>Dishwasher</h2>
+				<p class="q">
+					<label for="dishwasher">Loads per week</label>
+					<select name="dishwasher" id="dishwasher">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+					</select>
+				</p>
+				
+			</div>
+			<div class="box">
+				<img src="img/laundry.jpg" alt="Laundry" class="intro_image" />
+				<h2>Laundry</h2>
+				<p class="q">
+					<label for="laundry">Loads per week</label>
+					<select name="laundry" id="laundry">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+					</select>
+				</p>
+				</div>
+				
+			<div class="box">
+				<img src="img/outdoor.jpg" alt="Outside water" class="intro_image" />
+				<h2>Outside water</h2>
+				<p><label for="outside_minutes">Minutes per week watering grass, washing cars, using the hose, etc.</label></p>
+				<p class="q time"><input type="text" id="outside_minutes" name="outside_minutes" value="0" class="numeric" /></p>
+			</div>
+		 </form>
+		</div>
+
+
+		<div id="results_wrapper" style="min-height:800px;">
+			<h1>Daily Water Use: </h1>
+			
+			<div id="box">
+			<h3 id="totalusage"></h3>
+			</div>
+			
+			<div class="caption" style="margin:-10px 0 20px 0;">* Rounded to the nearest gallon.</div>
+						
+						
+			<div id="household_totals" style="margin-top:-30px;">
+				<div class="sections">
+					<h3 style="color: #3FA3D5;">Itemized Usage:</h3>
+					<p><strong>Shower &amp; bath:</strong> <span id="bathandshowertotal"></span><br />
+					<span id='bath_household_total_jugs' class="jugs"></span></p>
+					
+					<p><strong>Toilet:</strong> <span id="toilettotal"></span><br />
+					<span id="toilettotaljugs" class="jugs"></span></p>
+					
+					<p><strong>Sink:</strong> <span id="sinktotal"></span><br />
+					<span id="sink_household_total_jugs" class="jugs"></span></p>
+					
+					<p><strong>Dishes by hand:</strong> <span id="handtotal"></span><br />
+					<span id="hand_household_total_jugs" class="jugs"></span></p>
+					
+					<p><strong>Dishwasher:</strong> <span id="dishwashertotal"></span><br />
+					<span id="dishwasher_household_total_jugs" class="jugs"></span></p>
+					
+					<p><strong>Laundry:</strong> <span id="laundrytotal"></span><br />
+					<span id="laundry_household_total_jugs" class="jugs"></span></p>
+					
+					<p><strong>Outside:</strong> <span id="outsidetotal"></span><br />
+					<span id="outside_household_total_jugs" class="jugs"></span></p>
+				</div>
+				
+				
+				<div id="dividerbar" class="dividerbar"><p ></p>
+</div>
+
+
+				<p class="total"><strong>Weekly: </strong> <span id="totalWeekly" class="total_household_week"></span></p><br />
+				
+				<p class="total"><strong>Monthly:</strong> <span id="totalMonthly" class="total_household_month"></span></p><br />
+				
+				
+				<p class="total"><strong>Yearly:</strong> <span id="totalYearly"   class="total_household_year"></span></p><br />
+				<p class="total"><span id="newusage"   class="total_household_year"></span></p>
+				
+				
+			</div>
+
+			<div id="dividerbar" class="dividerbar"><p ></p>
+</div>
+
+			
+			<br style="clear:both;" />
+			<br />
+			
+			
+			<p align="center" > Average daily water usage around the world compared to your water usage:</p>
+			 <!--Div that will hold the chart-->
+    <div id="chart_div" width= "100%"></div>
+    
+			
+			
+
+		
+		</div>
+
+
+	
+	<hr class="clear" />
+	
+	<div style="font-size:11px; line-height:1.4em;">
+
+
+	<p style="clear:both;" align="left">This water use calculator is for general information only. Data is based on U.S. national averages. Calculations are estimates that are valuable for comparison purposes but are not meant to reflect exact water usage.</p>
+	
+	
+	<p style="clear:both;" align="left">National averages represented on the chart were taken from <a href="http://data360.org/index.aspx" target="_blank">Data 360</a>. </p>
+	
+<p align="right"> By: Ben G. Slade </p>
+
+  
+
+
+
+</div></div>
+
+
+
+
+<script>
+
+
+
+<!--Load the AJAX API-->
+   
+    
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+       function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '');
+        data.addColumn('number', 'Gallons/Person/Day');
+        data.addRows([
+          ['U.S.', 81.1],
+          ['Brazil', 49.4],
+          ['India', 35.7],
+          ['China', 22.7],
+          ['Ghana', 9.5],
+          ['France', 75.8],
+          [ 'You', 0]
+        ]);
+        
+        // Set chart options
+        var options = {'title':'',
+        				'backgroundColor':'#e9f5fa',
+                       'height':300,
+                       'legend':'none'};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      document.getElementById("calcForm").onchange=function() { // function executes when form is submitted
+     
+      
+      
+      
+var showerDaily = document.getElementById("showers").value;
+var showerDailyGal = showerDaily * 17.2;
+var showerGal = showerDailyGal * 7;
+
+var bathNum = document.getElementById("baths").value;
+var bathGal = bathNum * 50;
+
+var flushDaily= document.getElementById("toilet_flushes").value;
+var flushDailyGal = flushDaily * 1.6;
+var flushGal = flushDailyGal * 7;
+
+
+var sinkMinutes = document.getElementById("sink_minutes").value;
+var sinkDailyGal = sinkMinutes * 2.2;
+var sinkGal = sinkDailyGal * 7;
+
+var handMinutes = document.getElementById("hand_minutes").value;
+var handDailyGal = handMinutes * 2.5;
+var handGal = handDailyGal * 7;
+
+var dishLoads = document.getElementById("dishwasher").value;
+var dishGal = dishLoads * 6;
+
+var laundryLoads = document.getElementById("laundry").value;
+var  laundryGal = laundryLoads * 27;
+
+var outsideMinutes = document.getElementById("outside_minutes").value;
+var  outsideGal = outsideMinutes * 7;
+
+ 
+var totalWeekly = Number(showerGal) + Number(bathGal) + Number(flushGal) + Number(sinkGal) + Number(handGal) + Number(dishGal) + Number(dishGal) + Number(laundryGal) + Number(outsideGal);
+
+var totalDaily = totalWeekly / 7;
+
+totalDaily = parseInt(totalDaily);
+
+   
+   
+      document.getElementById("bathandshowertotal").innerHTML = " " + Math.round( (Number(showerGal) + Number(bathGal))/7 ) + " Gallons " ; // changes the innerHTML to the form element
+      
+      document.getElementById("toilettotal").innerHTML = " " + Math.round(flushGal/7 ) + " Gallons " ; // changes the innerHTML to the form element
+      
+       document.getElementById("sinktotal").innerHTML = " " + Math.round(sinkGal/7) + " Gallons " ; // changes the innerHTML to the form element
+            
+       document.getElementById("handtotal").innerHTML = " " + Math.round(handGal/7) + " Gallons " ; // changes the innerHTML to the form element
+       
+            document.getElementById("dishwashertotal").innerHTML = " " + Math.round(dishGal/7) + " Gallons " ; // changes the innerHTML to the form element
+      
+       document.getElementById("laundrytotal").innerHTML = " " + Math.round(laundryGal/7) + " Gallons " ; // changes the innerHTML to the form element
+      
+            document.getElementById("outsidetotal").innerHTML = " " + Math.round(outsideGal/7) + " Gallons " ; // changes the innerHTML to the form element
+      
+          document.getElementById("totalWeekly").innerHTML = " " + Math.round(totalWeekly) + " Gallons " ; // changes the innerHTML to the form element
+          
+              document.getElementById("totalMonthly").innerHTML = " " + Math.round(totalDaily * 30) + " Gallons " ; // changes the innerHTML to the form element
+      
+        document.getElementById("totalYearly").innerHTML = " " + Math.round(totalDaily * 365) + " Gallons " ; // changes the innerHTML to the form element
+         
+    document.getElementById("totalusage").innerHTML = totalDaily + " gallons per day"; // changes the innerHTML to the form element
+    
+    
+       //return false;  required to not refresh the page
+
+    
+        // Create the data table.
+        
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '');
+        data.addColumn('number', 'Gallons/Person/Day');
+        data.addRows([
+          ['U.S.', 81.1],
+          ['Brazil', 49.4],
+          ['India', 35.7],
+          ['China', 22.7],
+          ['Ghana', 9.5],
+          ['France', 75.8],
+          [ 'You', totalDaily]
+        ]);
+
+        // Set chart options
+        var options = {'title':'',
+        				'backgroundColor':'#e9f5fa',
+                       'height':300,
+                       'legend':'none'};
+
+        // Instantiate and draw our chart, passing in some options.
+       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+       chart.draw(data, options);
+      }
+      }
+      
+    
+ 
+
+
+</script>
+
+</body>
+</html>
